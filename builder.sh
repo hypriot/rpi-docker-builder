@@ -18,5 +18,4 @@ cd /
 tar czf $TAR_FILE -C /src/docker/bundles/$DOCKER_VERSION/dynbinary/ .
 
 # Upload to S3 (using AWS CLI)
-printf "$ACCESS_KEY\n$SECRET_KEY\n$REGION_NAME\n\n" | aws configure
-aws s3 cp $TAR_FILE s3://$BUCKET_NAME/docker/v$DOCKER_VERSION/
+aws s3 cp $TAR_FILE s3://$AWS_BUCKET_NAME/docker/v$DOCKER_VERSION/
