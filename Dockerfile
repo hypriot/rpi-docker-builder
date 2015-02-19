@@ -1,6 +1,6 @@
 
 # Pull base image
-FROM hypriot/golang:1.4.2
+FROM hypriot/rpi-golang:1.4.2
 MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
