@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     btrfs-tools \
     libsqlite3-dev \
     libdevmapper-dev \
+    fakeroot \
     python-pip \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
@@ -21,8 +22,11 @@ RUN \
     cd /src && \
     git clone https://github.com/docker/docker.git
 
-# Patch Docker for ARM 32bit
+# Add Docker specific files
 ADD files/version.h /usr/include/btrfs/version.h
+
+# Debian package template
+ADD pkg-debian /pkg-debian
 
 # Builder script
 COPY builder.sh /
