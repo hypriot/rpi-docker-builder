@@ -33,9 +33,9 @@ mkdir -p $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.service $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.socket $PACKAGE_ROOT/lib/systemd/system/
 mkdir -p $PACKAGE_ROOT/usr/bin/
-cp /src/docker/bundles/1.5.0/dynbinary/docker-1.5.0 $PACKAGE_ROOT/usr/bin/docker
+cp /src/docker/bundles/$DOCKER_VERSION/dynbinary/docker-$DOCKER_VERSION $PACKAGE_ROOT/usr/bin/docker
 mkdir -p $PACKAGE_ROOT/usr/lib/docker/
-cp /src/docker/bundles/1.5.0/dynbinary/dockerinit-1.5.0 $PACKAGE_ROOT/usr/lib/docker/dockerinit
+cp /src/docker/bundles/$DOCKER_VERSION/dynbinary/dockerinit-$DOCKER_VERSION $PACKAGE_ROOT/usr/lib/docker/dockerinit
 
 # --get the total size of all package files
 filesize=`du -sk /pkg-debian/ | cut -f1`
