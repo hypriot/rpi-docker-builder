@@ -4,7 +4,9 @@ set -e
 case "$1" in
 	configure)
 		if [ -z "$2" ]; then
-			addgroup --system --quiet docker
+			if ! getent group docker > /dev/null 2>&1; then
+				addgroup --system --quiet docker
+			fi
 		fi
 		;;
 	abort-*)
