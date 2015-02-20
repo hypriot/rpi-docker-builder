@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 if [ -x "/etc/init.d/docker" ]; then
-	invoke-rc.d docker stop || exit 0
+	invoke-rc.d docker stop >/dev/null 2>&1 || exit 0
 fi
