@@ -37,6 +37,11 @@ cp /src/docker/bundles/$DOCKER_VERSION/dynbinary/docker-$DOCKER_VERSION $PACKAGE
 mkdir -p $PACKAGE_ROOT/usr/lib/docker/
 cp /src/docker/bundles/$DOCKER_VERSION/dynbinary/dockerinit-$DOCKER_VERSION $PACKAGE_ROOT/usr/lib/docker/dockerinit
 
+# --enable overlayfs by default
+cat << EOF >> $PACKAGE_ROOT/etc/default/docker
+DOCKER_OPTS="--storage-driver=overlay -D"
+EOF
+
 # --get the total size of all package files
 filesize=`du -sk /pkg-debian/ | cut -f1`
 echo "Package size (uncompressed): $filesize kByte"
@@ -46,13 +51,15 @@ cat << EOF > /pkg-debian/DEBIAN/control
 Package: $PACKAGE_NAME
 Version: $PACKAGE_VERSION$PACKAGE_REVISION
 Architecture: $PACKAGE_ARCH
-Essential: no
-Section: unkwown
-Priority: optional
-Depends:
 Maintainer: Dieter Reuter <dieter@hypriot.com>
 Installed-Size: $filesize
-Description: Docker for ARM devices, compiled and packaged by https://hypriot.com
+Depends: adduser, iptables
+Recommends: ca-certificates, cgroupfs-mount | cgroup-lite, git, xz-utils
+Section: admin
+Priority: optional
+Homepage: https://github.com/docker/docker
+Description: Docker for ARM devices
+ Compiled and packaged by https://hypriot.com
 EOF
 
 # --regenerate MD5 checksums for all files
