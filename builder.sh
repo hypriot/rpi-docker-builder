@@ -38,9 +38,8 @@ mkdir -p $PACKAGE_ROOT/usr/lib/docker/
 cp /src/docker/bundles/$DOCKER_VERSION/dynbinary/dockerinit-$DOCKER_VERSION $PACKAGE_ROOT/usr/lib/docker/dockerinit
 
 # --enable overlayfs by default
-cat << EOF >> $PACKAGE_ROOT/etc/default/docker
-DOCKER_OPTS="--storage-driver=overlay -D"
-EOF
+sed -i '/#DOCKER_OPTS/a \
+DOCKER_OPTS="--storage-driver=overlay -D"' $PACKAGE_ROOT/etc/default/docker
 
 # --get the total size of all package files
 filesize=`du -sk /pkg-debian/ | cut -f1`
