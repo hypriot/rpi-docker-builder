@@ -6,7 +6,7 @@ DOCKER_VERSION=$1
 BUILD_REVISION=$2
 
 # debian package versions
-PACKAGE_NAME=docker
+PACKAGE_NAME=docker-hypriot
 PACKAGE_VERSION=$DOCKER_VERSION
 PACKAGE_REVISION=$BUILD_REVISION
 PACKAGE_ARCH=armhf
@@ -53,12 +53,13 @@ Architecture: $PACKAGE_ARCH
 Maintainer: Dieter Reuter <dieter@hypriot.com>
 Installed-Size: $filesize
 Depends: adduser, iptables
+Conflicts: docker.io
+Replaces: docker.io
 Recommends: ca-certificates, cgroupfs-mount | cgroup-lite, git, xz-utils
 Section: admin
 Priority: optional
 Homepage: https://github.com/docker/docker
-Description: Docker for ARM devices
- Compiled and packaged by https://hypriot.com
+Description: Docker for ARM devices, compiled and packaged by http://blog.hypriot.com
 EOF
 
 # --regenerate MD5 checksums for all files
