@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+	configure)
+		if [ -z "$2" ]; then
+			if ! getent group docker > /dev/null 2>&1; then
+				addgroup --system --quiet docker
+			fi
+		fi
+		;;
+	abort-*)
+		# How'd we get here??
+		exit 1
+		;;
+	*)
+		;;
+esac
+
+if [ -x "/etc/init.d/docker" ]; then
+	update-rc.d docker defaults >/dev/null
+	invoke-rc.d docker start || exit $?
+fi
