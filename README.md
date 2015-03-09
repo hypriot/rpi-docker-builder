@@ -17,8 +17,10 @@ docker build -t hypriot/rpi-docker-builder .
 ```
 
 ## Step 2: run builder for each Docker version
-`./builder.sh`
+`./run-builder.sh`
 ```bash
 #!/bin/sh -x
 docker run --rm=true --env-file=.env -v $(pwd)/builder.sh:/builder.sh -v $(pwd)/pkg-debian:/pkg-debian hypriot/rpi-docker-builder /builder.sh 1.5.0 -7
 ```
+
+*Note:* if you like to build from trunk, just use version "1.5.0-dev" when calling ./builder.sh
