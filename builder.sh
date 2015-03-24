@@ -68,6 +68,13 @@ EOF
 # --use fakeroot to set owner/group to 0/0 (root/root)
 fakeroot dpkg -b /pkg-debian/ /$DEB_FILE
 
-# Upload to S3 (using AWS CLI)
-aws s3 cp /$TAR_FILE s3://$AWS_BUCKET_NAME/docker/bin/
-aws s3 cp /$DEB_FILE s3://$AWS_BUCKET_NAME/docker/deb/
+if [ ! -z "${AWS_BUCKET_NAME}" ]; then
+  # Upload to S3 (using AWS CLI)
+  aws s3 cp /$TAR_FILE s3://$AWS_BUCKET_NAME/docker/bin/
+  aws s3 cp /$DEB_FILE s3://$AWS_BUCKET_NAME/docker/deb/
+fi
+if [ -d /dist ]; then
+  # Copy output to dist volume on host
+  cp /$TAR_FILE /dist/
+  cp /$DEB_FILE /dist/
+fi
