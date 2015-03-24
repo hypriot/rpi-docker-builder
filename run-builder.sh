@@ -1,3 +1,3 @@
 #!/bin/sh -x
 mkdir -p dist
-docker run --rm=true --env-file=.env -v $(pwd)/builder.sh:/builder.sh -v $(pwd)/pkg-debian:/pkg-debian -v $(pwd)/dist:/dist hypriot/rpi-docker-builder /builder.sh 1.5.0 -7
+docker run --rm=true --env-file=.env -v $(pwd)/builder.sh:/builder.sh -v $(pwd)/pkg-debian:/pkg-debian -v $(pwd)/dist:/dist hypriot/rpi-docker-builder /builder.sh 1.6.0-rc1 -1
