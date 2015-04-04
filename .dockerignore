@@ -1,3 +1,9 @@
 .dockerignore
 .git*
 .env*
+dist
+pkg-debian/DEBIAN/control
+pkg-debian/DEBIAN/md5sums
+pkg-debian/etc/
+pkg-debian/lib/
+pkg-debian/usr/
