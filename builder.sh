@@ -20,6 +20,9 @@ git checkout master
 git pull
 git checkout v$DOCKER_VERSION
 export AUTO_GOPATH=1
+#+++FIX: 1.7.0-rc1
+rm -f /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_amd.go
+#---FIX
 GOARM=6 ./hack/make.sh dynbinary
 
 # create tarball with Docker binaries
