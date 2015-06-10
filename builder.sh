@@ -17,10 +17,10 @@ TAR_FILE=${PACKAGE_NAME}-${DOCKER_VERSION}-${PACKAGE_REVISION}-${PACKAGE_ARCH}.t
 # compile Docker from source
 cd /src/docker
 git checkout master
-git pull
+git fetch -q --all -p
 git checkout v$DOCKER_VERSION
 export AUTO_GOPATH=1
-#+++FIX: 1.7.0-rc1
+#+++FIX: 1.7.0-rc1, 1.7.0-rc2
 rm -f /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_amd.go
 #---FIX
 GOARM=6 ./hack/make.sh dynbinary
