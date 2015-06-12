@@ -33,7 +33,7 @@ tar czf /$TAR_FILE -C /src/docker/bundles/$DOCKER_VERSION/dynbinary/ .
 mkdir -p $PACKAGE_ROOT/etc/default/
 cp /src/docker/contrib/init/sysvinit-debian/docker.default $PACKAGE_ROOT/etc/default/docker
 mkdir -p $PACKAGE_ROOT/etc/init.d/
-cp /src/docker/contrib/init/sysvinit-debian/docker $PACKAGE_ROOT/etc/init.d/docker
+# cp /src/docker/contrib/init/sysvinit-debian/docker $PACKAGE_ROOT/etc/init.d/docker
 mkdir -p $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.service $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.socket $PACKAGE_ROOT/lib/systemd/system/
