@@ -4,3 +4,4 @@ pkg-debian/DEBIAN/control
 pkg-debian/DEBIAN/md5sums
 pkg-debian/lib/
 pkg-debian/usr/
+pkg-debian/etc/default
