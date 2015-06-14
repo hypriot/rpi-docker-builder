@@ -89,6 +89,7 @@ case "$1" in
 		chgrp docker "$DOCKER_LOGFILE"
 
 		ulimit -n 1048576
+		ulimit -s 1024 # reduce stack size (default is 8192) to start more containers
 		if [ "$BASH" ]; then
 			ulimit -u 1048576
 		else
