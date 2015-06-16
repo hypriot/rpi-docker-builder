@@ -20,8 +20,8 @@ git checkout master
 git fetch -q --all -p
 git checkout v$DOCKER_VERSION
 export AUTO_GOPATH=1
-#+++FIX: 1.7.0-rc1, 1.7.0-rc2
-rm -f /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_amd.go
+#+++FIX: 1.7.0-rc1, 1.7.0-rc2, 1.7.0-rc3
+#rm -f /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_amd.go
 #---FIX
 GOARM=6 ./hack/make.sh dynbinary
 
