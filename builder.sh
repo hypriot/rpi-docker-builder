@@ -23,6 +23,11 @@ export AUTO_GOPATH=1
 #+++FIX: 1.7.0-rc1, 1.7.0-rc2, 1.7.0-rc3
 #rm -f /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_amd.go
 #---FIX
+#+++FIX: 1.7.0
+# fixes https://github.com/docker/docker/issues/14184
+# see https://github.com/vishvananda/netns/pull/8
+sed -i s/374/375/g /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_arm.go
+#---FIX
 GOARM=6 ./hack/make.sh dynbinary
 
 # create tarball with Docker binaries
