@@ -42,6 +42,8 @@ mkdir -p $PACKAGE_ROOT/etc/init.d/
 mkdir -p $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.service $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.socket $PACKAGE_ROOT/lib/systemd/system/
+mkdir -p $PACKAGE_ROOT/etc/bash_completion.d
+cp /src/docker/contrib/completion/bash/docker $PACKAGE_ROOT/etc/bash_completion.d/docker
 mkdir -p $PACKAGE_ROOT/usr/bin/
 cp /src/docker/bundles/$DOCKER_VERSION/dynbinary/docker-$DOCKER_VERSION $PACKAGE_ROOT/usr/bin/docker
 mkdir -p $PACKAGE_ROOT/usr/lib/docker/
