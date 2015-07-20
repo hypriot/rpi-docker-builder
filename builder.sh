@@ -40,7 +40,7 @@ cp /src/docker/contrib/init/sysvinit-debian/docker.default $PACKAGE_ROOT/etc/def
 mkdir -p $PACKAGE_ROOT/etc/init.d/
 # cp /src/docker/contrib/init/sysvinit-debian/docker $PACKAGE_ROOT/etc/init.d/docker
 mkdir -p $PACKAGE_ROOT/lib/systemd/system/
-cp /src/docker/contrib/init/systemd/docker.service $PACKAGE_ROOT/lib/systemd/system/
+# cp /src/docker/contrib/init/systemd/docker.service $PACKAGE_ROOT/lib/systemd/system/
 cp /src/docker/contrib/init/systemd/docker.socket $PACKAGE_ROOT/lib/systemd/system/
 mkdir -p $PACKAGE_ROOT/etc/bash_completion.d
 cp /src/docker/contrib/completion/bash/docker $PACKAGE_ROOT/etc/bash_completion.d/docker
