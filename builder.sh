@@ -28,6 +28,13 @@ export AUTO_GOPATH=1
 # see https://github.com/vishvananda/netns/pull/8
 #sed -i s/374/375/g /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_arm.go
 #---FIX
+#+++FIX: 1.8.0-rc3
+echo "Applying PR opencontainers/runc#70 ..."
+pushd vendor/src/github.com/opencontainers
+rm -rf runc
+git clone --depth 1 --branch seccomp https://github.com/mheon/runc.git
+popd
+#---FIX
 GOARM=6 ./hack/make.sh dynbinary
 
 # create tarball with Docker binaries
