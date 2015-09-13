@@ -29,11 +29,39 @@ export AUTO_GOPATH=1
 #sed -i s/374/375/g /src/docker/vendor/src/github.com/vishvananda/netns/netns_linux_arm.go
 #---FIX
 #+++FIX: 1.8.0-rc3
-echo "Applying PR opencontainers/runc#70 ..."
-pushd vendor/src/github.com/opencontainers
-rm -rf runc
-git clone --depth 1 --branch seccomp https://github.com/mheon/runc.git
-popd
+#echo "Applying PR opencontainers/runc#70 ..."
+#pushd vendor/src/github.com/opencontainers
+#rm -rf runc
+#git clone --depth 1 --branch seccomp https://github.com/mheon/runc.git
+#popd
+#---FIX
+#+++FIX: 1.8.2
+#echo "Applying PR opencontainers/runc#70 ..."
+#pushd vendor/src/github.com/opencontainers
+#rm -rf runc
+#git clone --branch v0.0.3 https://github.com/opencontainers/runc.git
+#cd runc
+#git cherry-pick 2ae581ae62f26c7c253d23f4dad1a497ba98f7d4
+#git cherry-pick 8da24a5447c4d47fd895c7251ab8ed6d2b6f459f
+#git cherry-pick 59264040bd9668e1434abb1a1057989ca623b437
+#git cherry-pick a6b73dbc733abee71c1df28836b04d8b6c4f4f18
+#cd ..
+#popd
+#mkdir -p vendor/src/github.com/seccomp
+#pushd vendor/src/github.com/seccomp
+#git clone --depth 1 https://github.com/seccomp/libseccomp-golang.git
+#popd
+#mkdir -p /src/docker/vendor/src/github.com/coreos
+#pushd /src/docker/vendor/src/github.com/coreos
+#rm -rf go-systemd
+#git clone --depth 1 https://github.com/coreos/go-systemd
+#popd
+#---FIX
+#+++FIX: 1.8.2 (by @umiddelberg)
+set -x
+mv vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/{jump_amd64.go,jump_linux.go}
+sed -i 's/,amd64//' vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/jump_linux.go
+set +x
 #---FIX
 GOARM=6 ./hack/make.sh dynbinary
 
