@@ -6,6 +6,7 @@ MAINTAINER Dieter Reuter <dieter@hypriot.com>
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     btrfs-tools \
+    curl \
     libsqlite3-dev \
     libdevmapper-dev \
     fakeroot \
