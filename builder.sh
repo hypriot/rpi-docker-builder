@@ -58,10 +58,10 @@ export AUTO_GOPATH=1
 #popd
 #---FIX
 #+++FIX: 1.8.2 (by @umiddelberg)
-set -x
-mv vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/{jump_amd64.go,jump_linux.go}
-sed -i 's/,amd64//' vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/jump_linux.go
-set +x
+#set -x
+#mv vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/{jump_amd64.go,jump_linux.go}
+#sed -i 's/,amd64//' vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/jump_linux.go
+#set +x
 #---FIX
 GOARM=6 ./hack/make.sh dynbinary
 
