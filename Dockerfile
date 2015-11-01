@@ -1,6 +1,6 @@
 
 # Pull base image
-FROM hypriot/rpi-golang:1.4.2
+FROM resin/rpi-raspbian:jessie
 MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y \
     python-pip \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
+
+# Install Go (using a pre-compiled version)
+ENV GO_VERSION 1.4.3
+RUN curl -sSL https://github.com/DieterReuter/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-armv6.tar.gz | tar -v -C /usr/local -xz
+ENV PATH /usr/local/go/bin:$PATH
 
 # Install AWS CLI
 RUN pip install awscli
