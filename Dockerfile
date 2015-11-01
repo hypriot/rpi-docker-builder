@@ -5,6 +5,9 @@ MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    libc6-dev \
+    gcc \
     btrfs-tools \
     curl \
     libsqlite3-dev \
