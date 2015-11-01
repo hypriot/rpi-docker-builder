@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     libdevmapper-dev \
     fakeroot \
+    git-core \
     python-pip \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
