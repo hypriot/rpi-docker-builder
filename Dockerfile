@@ -27,9 +27,6 @@ RUN \
     cd /src && \
     git clone https://github.com/docker/docker.git
 
-# Add Docker specific files
-ADD files/version.h /usr/include/btrfs/version.h
-
 # Debian package template
 ADD pkg-debian /pkg-debian
 
