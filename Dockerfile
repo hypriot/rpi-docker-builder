@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Go (using a pre-compiled version)
 ENV GO_VERSION 1.4.3
-RUN curl -sSL https://github.com/DieterReuter/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-armv7.tar.gz | tar -xz -C /usr/local
+RUN curl -sSL https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-armv7.tar.gz | tar -xz -C /usr/local
 ENV PATH /usr/local/go/bin:$PATH
 
 # Install AWS CLI
