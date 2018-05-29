@@ -2,7 +2,7 @@
 
 This builder runs natively on a [Raspberry Pi with Docker 1.4](http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm/) or later, or on a [Scaleway C1 ARM server](https://www.scaleway.com) with a `Docker 1.5 Image`.
 
-###How to use
+## How to use
 *TL;DR*
 ```bash
 git clone https://github.com/hypriot/rpi-docker-builder.git
